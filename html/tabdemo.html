@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>原生JS选项卡</title>
+<style>
+*{ margin:0; padding:0; font-family:Microsoft YaHei; font-size:16px;}
+ul,li{ list-style:none;}
+#tab{ margin:200px;}
+#title{ height:40px; line-height:40px; overflow:hidden;}
+#title li{ float:left; width:100px; text-align:center; display:block; background:#eee; cursor:pointer;}
+#title .active{ background:#3C0; color:#fff;}
+#tabcont{ width:298px; border:1px solid #ccc; height:300px;}
+</style>
+<script>
+function tab(Nav,Num){
+      if(Nav.className=="active")return;
+      var thisNav=Nav.parentNode.id;
+      var navName=Nav.nodeName.toLowerCase();
+      var navList=document.getElementById(thisNav).getElementsByTagName(navName);
+      for(var i=0;i<navList.length;i++){
+              if(i==Num){
+                      Nav.className="active";
+                      document.getElementById("cont"+i).style.display="block";
+              }else{
+                      navList[i].className="";
+                      document.getElementById("cont"+i).style.display="none";
+              }
+      }
+}
+</script>
+</head>
+<body>
+<div id="tab">
+          <ul id="title">
+                   <li onclick="tab(this,0)" class="active">综合</li>
+                   <li onclick="tab(this,1)">新闻</li>
+                   <li onclick="tab(this,2)">活动</li>
+          </ul>
+          <div id="tabcont">
+                   <div id="cont0">1</div>
+                   <div id="cont1" style="display:none;">2</div>
+                   <div id="cont2" style="display:none;">3</div>
+          </div>
+</div>
+</body>
+</html>

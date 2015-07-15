@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<head>
+<title>新建网页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+
+<script>
+	function showtime(){
+		var now_time = new Date();
+		var hours = now_time.getHours();
+		var minutes = now_time.getMinutes();
+		var seconds = now_time.getSeconds();
+		var timer = ""+ ( (hours > 12) ? hours-12 : hours);
+		timer += ( (minutes < 10) ? ":0" : ":") + minutes;
+		timer += ( (seconds < 10) ? ":0" : ":") + seconds;
+		timer += " " + ((hours > 12) ? "pm" : "am");
+		document.write(timer);
+		setTimeout("showtime()",1000);
+	}
+	showtime();
+</script>
+</head>
+    <body>
+    	<form name="clock" onSubmit="0">
+    	</form>
+    </body>
+</html>
